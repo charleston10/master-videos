@@ -1,0 +1,28 @@
+ <md-button class="md-fab md-fab-top-right md-warn" aria-label="Add" ng-click="showAdd($event)" ng-href="/admin/channel/register">
+    <ng-md-icon icon="add" size="30" style="fill: white;position: absolute;top: 20%;left: 23%;"></ng-md-icon>
+</md-button>
+
+ <md-content  ng-init="list()" layout-padding> 
+    <md-list>     
+        <md-subheader class="md-no-sticky">Canais</md-subheader>
+           
+        <div ng-repeat="channel in listChannel| orderBy: '-id'">
+            <md-list-item class="md-3-line">  
+                
+                <img src="data:{{channel[8]}};base64,{{channel[7]}}" class="md-avatar">
+                
+                <div class="md-list-item-text">                 
+                  <h3>{{ channel[1]  }}</h3>
+                  <h4>{{ channel[2] }}</h4>              
+                  <p>Ínicio: {{ channel[3] | date:'dd/MM/yyyy' }}</p>         
+                  
+                  <md-switch class="md-secondary" ng-model="false"></md-switch>
+            
+                </div>
+            </md-list-item>
+            
+            <md-divider></md-divider>
+            
+        </div>
+    </md-list>
+</md-content>

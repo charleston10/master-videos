@@ -1,0 +1,60 @@
+ <section class="md-whiteframe-z1" ng-init="init()">
+    <md-subheader class="md-no-sticky">Registrar Canal</md-subheader>
+   
+    <md-button ng-disabled="form.$invalid" class="md-fab md-fab-top-right md-warn" aria-label="Add" ng-click="insert()">
+        <ng-md-icon icon="save" size="30" style="fill: white;position: absolute;top: 20%;left: 23%;"></ng-md-icon>
+    </md-button>
+    
+    <md-content layout-padding layout="column">
+       <form name="form">   
+           <md-input-container>               
+                <img  id="imageChannel" name="imageChannel" src="data:{{image[2]}};base64,{{image[5]}}" class="md-whiteframe-z1" ng-required="true" style="width: 200px; height: 100px; cursor: pointer; " ng-click="openDialogImage($event)">
+                <div ng-messages="form.$error">
+                      <div class="md-caption">Selecione uma capa para o canal <br>cliclando no painel acima</div>                                 
+                </div>                
+          </md-input-container>        
+          <md-input-container>
+                <label>Nome</label>
+                <input md-maxlength="80" required name="name" ng-model="course.name">
+            
+                <div ng-messages="form.$error">
+                      <div ng-show="form.name.$error.required" class="md-caption">Campo Obrigatório</div>                                 
+                </div>            
+          </md-input-container> 
+          <md-input-container>
+                <label>Descrição</label>
+                <input md-maxlength="30" required name="description" ng-model="course.description">
+            
+                <div ng-messages="form.$error">
+                      <div ng-show="form.description.$error.required" class="md-caption">Campo Obrigatório</div>
+                </div>            
+          </md-input-container> 
+           <md-input-container>
+                <label>URL Amigável</label>
+                <input md-maxlength="30" required name="friendUrl" ng-model="course.friendUrl">
+            
+                <div ng-messages="form.$error">
+                      <div ng-show="form.friendUrl.$error.required" class="md-caption">Campo Obrigatório</div>
+                </div>            
+          </md-input-container> 
+          <md-content layout-padding layout="row" layout-sm="column">  
+              <md-input-container>
+                    <label>Data de Ínicio</label>
+                    <input type="date" required name="startDate" ng-model="course.startDate">
+                
+                    <div ng-messages="form.$error">
+                          <div ng-show="form.startDate.$error.required" class="md-caption">Campo Obrigatório</div>
+                    </div>            
+              </md-input-container>  
+              <md-input-container>
+                    <label>Data de Fim</label>
+                    <input type="date" name="endDate" ng-model="course.endDate"> 
+                    
+                    <div ng-messages="form.$error">
+                          <div class="md-caption">&nbsp</div>
+                    </div>                                                        
+              </md-input-container>  
+          </md-content>           
+        </form>
+     </md-content>          
+</section>

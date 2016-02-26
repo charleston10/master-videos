@@ -1,0 +1,18 @@
+{
+"title"         :"Selects Marotos" ,
+"description" 	: "Canal destinado a ensinar comandos SQL do banco de dados Postgre de uma maneira muito interativa. ",
+"video" 	:   [
+                        {
+                                "id" : "1",
+                                "img" : "assets/img/img-site/java.jpg"
+                        },
+                        {
+                                "id" : "2",
+                                "img" : "assets/img/img-site/java.jpg"
+                        },
+                        {
+                                "id" : "3",
+                                "img" : "assets/img/img-site/java.jpg"
+                        }
+                    ]	
+}

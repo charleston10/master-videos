@@ -1,0 +1,30 @@
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('offset-sm')">
+  <!--
+  <md-toolbar class="md-tall md-hue-2">    
+    <div layout="column" class="md-toolbar-tools-bottom">
+      <user-avatar></user-avatar>
+      <span></span>
+      <div>eXcript</div>
+      <div>Tudo aqui é gratuito</div>
+    </div>
+  </md-toolbar>
+  
+  -->
+  
+  <md-list>
+      <md-subheader class="md-no-sticky">Excript</md-subheader>    
+      <md-list-item ng-click="navigateTo('/', $event)">
+        <ng-md-icon icon="home" size="20" style="fill: grey"></ng-md-icon>
+        <p>Inicio</p>
+      </md-list-item>
+      <md-list-item ng-click="navigateTo('/channel', $event)">
+        <ng-md-icon icon="desktop_windows" size="20" style="fill: grey"></ng-md-icon>
+        <p>Canais</p>
+      </md-list-item>
+      <md-divider></md-divider>
+      <md-list-item ng-click="navigateTo('/about', $event)">
+        <ng-md-icon icon="businness" size="20" style="fill: grey"></ng-md-icon>
+        <p>Sobre</p>
+      </md-list-item>
+  </md-list>
+</md-sidenav>

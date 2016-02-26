@@ -1,0 +1,8 @@
+{
+ 	"jdbcDriver" : "com.mysql.jdbc.Driver",
+	"host" : "localhost:3306",
+	"name" : "master_videos",
+	"type" : "mysql",
+	"user" : "root",
+	"password" : ""
+}

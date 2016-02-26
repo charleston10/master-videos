@@ -1,0 +1,31 @@
+  <md-button class="md-fab md-fab-top-right md-warn" aria-label="Add" ng-click="showAdd($event)" ng-href="/admin/video/register">
+    <ng-md-icon icon="add" size="30" style="fill: white;position: absolute;top: 20%;left: 23%;"></ng-md-icon>
+</md-button>
+
+ <md-content ng-init="findAll()" layout-padding>   
+              
+    <md-list>
+        <md-subheader class="md-no-sticky">Vídeos</md-subheader>
+        
+        <div ng-repeat="video in videos | orderBy: '-id'">
+            <md-list-item class="md-3-line">  
+                
+                <img src="data:{{video.image.mimetype}};base64,{{video.image.base64}}" class="md-avatar">
+                
+                <div class="md-list-item-text">                 
+                  <h3>{{ video.name  }}</h3>
+                  <h4>{{ video.title }}</h4>              
+                  <a href="{{ video.url }}" target="_blank">
+                        {{ video.url }}
+                  </a>        
+                  
+                  <md-switch class="md-secondary" ng-model="video.disable" ng-change="disable(video)"></md-switch>
+            
+                </div>
+            </md-list-item>
+            
+            <md-divider></md-divider>
+            
+        </div>
+    </md-list>
+</md-content>

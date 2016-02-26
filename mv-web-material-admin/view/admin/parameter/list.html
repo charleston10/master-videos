@@ -1,0 +1,31 @@
+<md-button class="md-fab md-fab-top-right md-warn" aria-label="Add" ng-click="showAdd($event)" ng-href="/admin/parameter/register">
+  <ng-md-icon icon="add" size="30" style="fill: white;position: absolute;top: 20%;left: 23%;"></ng-md-icon>
+</md-button>
+
+ <md-content  ng-init="findAll()">               
+          
+    <md-list>
+        <md-subheader class="md-no-sticky">Parâmetros</md-subheader>
+        
+        <div ng-repeat="parameter in parameters| orderBy: '-id'">
+            <md-list-item class="md-3-line">    
+                <h6>({{parameter.id}})</h6>
+                
+                &nbsp&nbsp
+                
+                <div class="md-list-item-text">
+                  
+                  <h3>{{ parameter.name  }}</h3>
+                  <h4>{{ parameter.description }}</h4>
+                  <p>{{ parameter.parameterType.constant }}</p>
+                  <p>Ínicio: {{ parameter.startDate | date:'dd/MM/yyyy' }}</p>
+                  
+                  <md-switch class="md-secondary" ng-model="parameter.disable" ng-change="disable(parameter)"></md-switch>
+                </div>
+          </md-list-item>
+          
+          <md-divider></md-divider>
+          
+        </div>
+    </md-list>
+</md-content>

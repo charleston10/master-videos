@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <base href="/">
+        <meta charset="utf-8">
+        <title>MasterVideos | 2015</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="MasterVideos, videos, aulas, programação, informática, ti">
+        <meta name="author" content="charleston anjos">
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+		
+    </head>
+
+    <body layout="column" ng-controller="MainController">
+        
+        <ng-include src="'view/common/sidenavbar.html'"></ng-include>        
+    
+        <div class="relative"> 
+            <ng-include src="'view/common/navbar.html'"></ng-include>
+            
+            <md-content layout-padding flex role="main" layout-fill>
+                <ng-view></ng-view>
+            </md-content>
+        </div>
+
+       <!-- Include Javascript/Angular
+        ================================================== --> 
+        <!-- Angular scripts-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-cookies.min.js"></script>  
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script>
+        
+     
+        <!-- Angular Dependences -->        
+        <script src="assets/js/angular/app.js"></script>
+        <script src="assets/js/angular/config.js"></script>
+        <script src="assets/js/angular/constant.js"></script>       
+        
+        <!-- Angular Dependences Services --> 
+        <script src="assets/js/angular/service/ArticleService.js"></script>
+        <script src="assets/js/angular/service/ChannelService.js"></script>
+        <script src="assets/js/angular/service/ChannelServiceAdmin.js"></script>
+        <script src="assets/js/angular/service/ConfigurationService.js"></script>
+        <script src="assets/js/angular/service/HomeService.js"></script>
+        <script src="assets/js/angular/service/MainService.js"></script>
+        <script src="assets/js/angular/service/VideoService.js"></script>
+        <script src="assets/js/angular/service/VideoServiceAdmin.js"></script>        
+        <script src="assets/js/angular/service/UploadService.js"></script>
+        <script src="assets/js/angular/service/ImageService.js"></script>
+        <script src="assets/js/angular/service/ParameterServiceAdmin.js"></script>
+        <script src="assets/js/angular/service/ParameterService.js"></script>
+        <script src="assets/js/angular/service/ParameterTypeService.js"></script>
+        
+        <!-- Angular Dependences Controllers --> 
+        <script src="assets/js/angular/controller/ArticleController.js"></script>
+        <script src="assets/js/angular/controller/ChannelController.js"></script>
+        <script src="assets/js/angular/controller/HomeController.js"></script>
+        <script src="assets/js/angular/controller/MainController.js"></script>
+        <script src="assets/js/angular/controller/RouteActivityController.js"></script>
+        <script src="assets/js/angular/controller/VideoController.js"></script>
+        <script src="assets/js/angular/controller/VideoControllerAdmin.js"></script>
+        <script src="assets/js/angular/controller/UploadController.js"></script>
+        <script src="assets/js/angular/controller/ImageController.js"></script>
+        <script src="assets/js/angular/controller/ParameterControllerAdmin.js"></script>
+        <script src="assets/js/angular/controller/ChannelControllerAdmin.js"></script>
+        <script src="assets/js/angular/controller/ModalImageController.js"></script>
+        
+        <!-- Angular Dependences Directives --> 
+        <script src="assets/js/angular/directive/ngThumb.js"></script>
+        <script src="assets/js/angular/directive/Upload.js"></script>
+        <script src="assets/js/angular/directive/ButtonVideo.js"></script>
+        <script src="assets/js/angular/directive/LinkVideoRemoveDirective.js"></script>
+        
+        <!-- Angular Dependences Filters --> 
+        <script src="assets/js/angular/filter/MillSecondsToTimeString.js"></script>
+
+        <!-- Angular Bootstrap -->
+        <script src="assets/js/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+
+        <!-- Editor Angular -->
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.2.2/textAngular-sanitize.min.js'></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.2.2/textAngular.min.js'></script>
+        
+        <!-- Upload Image Angular -->
+        <script src="assets/js/angular/ext/angular-file-upload.js"></script>  
+    </body>
+</html>

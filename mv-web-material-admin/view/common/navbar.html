@@ -1,0 +1,25 @@
+<!--
+<md-toolbar>
+  <div class="md-toolbar-tools md-whiteframe-z3" >           
+        <md-button ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
+            <ng-md-icon icon="menu" style="fill: white" size="35"></ng-md-icon>
+          </md-button>
+    
+        <h3>
+            Admin
+        </h3>        
+  </div>      
+</md-toolbar>
+-->
+
+<md-toolbar ng-show="!showSearch">
+  <div class="md-toolbar-tools md-whiteframe-z3">
+      <md-button ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
+        <ng-md-icon icon="menu" style="fill: white;position: absolute;top: 21%;left: 35%;"></ng-md-icon>
+      </md-button>
+      <h3>
+        Dashboard
+      </h3>
+      <span flex></span>
+  </div>
+</md-toolbar>

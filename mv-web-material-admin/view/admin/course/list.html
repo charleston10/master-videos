@@ -1,0 +1,28 @@
+ <md-button class="md-fab md-fab-top-right md-warn" aria-label="Add" ng-click="showAdd($event)" ng-href="/admin/course/register">
+    <ng-md-icon icon="add" size="30" style="fill: white;position: absolute;top: 20%;left: 23%;"></ng-md-icon>
+</md-button>
+
+ <md-content  ng-init="list()" layout-padding> 
+    <md-list>     
+        <md-subheader class="md-no-sticky">Cursos</md-subheader>
+           
+        <div ng-repeat="course in listCourse| orderBy: '-id'">
+            <md-list-item class="md-3-line"> 
+              
+                <img src="data:{{course.image.mimetype}};base64,{{course.image.base64}}" class="md-avatar">
+                
+                <div class="md-list-item-text">                 
+                  <h3>{{ course.name  }}</h3>
+                  <h4>{{ course.description }}</h4>              
+                  <p>Ínicio: {{ course.startDate | date:'dd/MM/yyyy' }}</p>  
+                  
+                  <md-switch class="md-secondary" ng-model="course.disable" ng-change="disableCourse(course)"></md-switch>
+            
+                </div>
+            </md-list-item>
+            
+            <md-divider></md-divider>
+            
+        </div>
+    </md-list>
+</md-content>

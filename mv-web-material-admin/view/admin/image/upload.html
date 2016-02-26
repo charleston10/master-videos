@@ -1,0 +1,122 @@
+<style>
+    .my-drop-zone { border: dotted 3px lightgray; height: 30px;
+        text-align:center; /* center horizontally */
+        vertical-align:middle; /* center vertically */
+        horizontal-align:midle;
+        padding-top: 1%;
+     ;}
+    .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+    .another-file-over-class { border: dotted 3px green; }
+    
+    
+    canvas {
+        background-color: #f3f3f3;
+        -webkit-box-shadow: 3px 3px 3px 0 #e3e3e3;
+        -moz-box-shadow: 3px 3px 3px 0 #e3e3e3;
+        box-shadow: 3px 3px 3px 0 #e3e3e3;
+        border: 1px solid #c3c3c3;
+        height: 100px;
+        margin: 6px 0 0 6px;
+    }
+</style>  
+
+<section class="md-whiteframe-z1"  ng-init="init()">
+      
+    <md-subheader class="md-no-sticky">
+        Upload de Imagens        
+        <md-progress-linear class="md-accent" md-mode="determinate" value="{{uploader.progress}}"></md-progress-linear>        
+    </md-subheader> 
+    
+  <md-content layout-padding layout="row">
+          
+        <md-button class="md-fab md-raised md-mini md-warn" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length || !folder">
+              <md-tooltip>
+                  Upload (todos)
+              </md-tooltip>
+            <ng-md-icon icon="file_upload" size="30" style="fill: white;position: absolute;top: 13%;left: 12%;"></ng-md-icon>
+          </md-button>
+          
+          <md-button class="md-fab md-raised md-mini md-warn" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading || !folder">
+              <md-tooltip>
+                  Cancelar (todos)
+              </md-tooltip>
+            <ng-md-icon icon="block" size="30" style="fill: white;position: absolute;top: 13%;left: 12%;"></ng-md-icon>
+          </md-button>
+          
+          <md-button  class="md-fab md-raised md-mini md-warn" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+              <md-tooltip>
+                  Remover (todos)
+              </md-tooltip>
+            <ng-md-icon icon="clear" size="30" style="fill: white;position: absolute;top: 13%;left: 12%;"></ng-md-icon>
+          </md-button>
+        
+      </md-content>
+    
+    <md-content layout-padding layout="column" nv-file-drop="" uploader="uploader">
+        
+        <md-input-container> 
+            <p class="md-body-2">Selecione os arquivos</p>            
+            <div ng-show="uploader.isHTML5">                
+                <div class="well my-drop-zone" nv-file-over="" uploader="uploader">
+                    Drag drop
+                </div>
+            </div>                                  
+            <input type="file" class="md-button" nv-file-select="" uploader="uploader" multiple  ng-disabled="!folder"/><br/>                            
+        </md-input-container> 
+        
+        <md-input-container>
+                <md-select id="typeParameterSelect" placeholder="Pasta" ng-model="folder">
+                    <md-option ng-repeat="typeParameter in listFolder" value="{{typeParameter.id}}">
+                        {{typeParameter.name}}
+                    </md-option>
+                </md-select> 
+          </md-input-container>       
+    </md-content>
+    
+    <md-content layout-padding layout="column">
+        <md-list>             
+           
+            <md-subheader class="md-no-sticky">Total de arquivos: <i>{{ uploader.queue.length }}</i> </md-subheader>
+            
+            <md-list-item class="md-3-line" ng-repeat="item in uploader.queue">  
+               <md-subheader class="md-no-sticky">
+                    <div ng-show="uploader.isHTML5" class="md-avatar" ng-thumb="{ file: item._file, height: 100, width: 100 }"></div>
+               </md-subheader>
+               
+                <div class="md-list-item-text">
+                    <h3>
+                        <ng-md-icon icon="image" size="15" style="fill: grey;"></ng-md-icon>
+                        <i ng-show="item.isSuccess">Sucesso</i>
+                        <i ng-show="item.isCancel">Cancelado</i>
+                        <i ng-show="item.isError">Erro</i>
+                    </h3>                 
+                    <h3>{{ item.file.name }}</h3>
+                    <h4>{{ item.file.size/1024/1024|number:2 }} MB</h4>  
+                    <md-progress-linear class="md-accent" md-mode="determinate" value="{{item.progress}}"></md-progress-linear>
+                    
+                    <md-button class="md-button" ng-click="item.remove()">
+                         <md-tooltip>
+                             Remover
+                        </md-tooltip>
+                        <ng-md-icon icon="clear" size="15" style="fill: grey;position: absolute;top: 23%;left: 20%;"></ng-md-icon>
+                    </md-button> 
+                    <md-button class="md-button" ng-click="item.cancel()" ng-disabled="!item.isUploading || !folder">
+                         <md-tooltip>
+                             Cancelar
+                        </md-tooltip>
+                        <ng-md-icon icon="block" size="15" style="fill: grey;position: absolute;top: 13%;left: 12%;"></ng-md-icon>
+                    </md-button> 
+                    <md-button class="md-button" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess || !folder">
+                         <md-tooltip>
+                             Upload
+                        </md-tooltip>
+                        <ng-md-icon icon="file_upload" size="15" style="fill: grey;position: absolute;top: 13%;left: 12%;"></ng-md-icon>
+                    </md-button> 
+                                        
+                </div>
+            </md-list-item>
+            
+            <md-divider></md-divider>                
+        </md-list>    
+    </md-content> 
+</section> 

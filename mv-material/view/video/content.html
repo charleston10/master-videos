@@ -1,0 +1,28 @@
+  <md-content class="md-padding" ng-init="content()">     
+    <div layout="row" layout-align="center" layout-wrap layout-padding>  
+        <div  class="parent" layout="column">
+            
+            <md-button ng-click="backChannel()">
+                <ng-md-icon icon="undo" size="20"></ng-md-icon>
+                  Voltar à lista de vídeos
+            </md-button>
+        </div>
+    </div> 
+    
+    <div layout="row"" layout-align="center" layout-sm="column" layout-wrap>
+        <div layout="column">
+        <h3 class="md-title">{{ contentVideo.name }}</h3>
+        
+        <md-divider></md-divider>        
+         
+             <p>
+                 <b>{{ contentVideo.title }}</b>  
+                                
+             </p> 
+                            
+            <iframe width="560" height="315" src="{{ trustUrl(contentVideo.url) }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+    </div> 
+    
+  </md-content> 

@@ -1,0 +1,18 @@
+ <div layout="row"" layout-align="left" layout-sm="column" ng-init="init()" layout-wrap>  
+    <div ng-repeat="panel in listPanel| filter: searchContent | limitTo: 16 | orderBy: '+type'" 
+        flex="25" flex-sm="100" layout="row" >
+          <md-card>
+                <a href="channel/{{panel[7]}}/video/{{panel[0]}}">     
+                      <img ng-src="data:{{panel[12]}};base64,{{panel[11]}}" style="height: 200px" class="md-card-image" alt="123">
+                </a>                      
+                <md-card-content> 
+                        <h2 class="md-title">
+                            {{ panel[1] }}
+                        </h2>                       
+                        <p>
+                            {{ panel[2] }}  
+                        </p>                                
+                </md-card-content>
+          </md-card>          
+    </div>      
+ </div> 

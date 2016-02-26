@@ -1,0 +1,64 @@
+ <section class="md-whiteframe-z1"  ng-init="initRegister()">
+     
+    <md-subheader class="md-no-sticky">Registrar Vídeo</md-subheader>    
+   
+    <md-button ng-disabled="form.$invalid" class="md-fab md-fab-top-right md-warn" aria-label="Add" ng-click="save(video)">
+        <ng-md-icon icon="save" size="30" style="fill: white;position: absolute;top: 20%;left: 23%;"></ng-md-icon>
+    </md-button>  
+    
+    <md-content layout-padding layout="column">
+       <form name="form">   
+           <md-input-container>               
+                <img  id="imageChannel" name="imageChannel" src="data:{{video.image.mimetype}};base64,{{video.image.base64}}" class="md-whiteframe-z1" ng-required="true" style="width: 200px; height: 100px; cursor: pointer; " ng-click="openDialogImage($event)">
+                <div ng-messages="form.$error">
+                      <div class="md-caption">Selecione uma capa para o vídeo <br>cliclando no painel acima</div>                                 
+                </div>                
+          </md-input-container>
+          <md-input-container>
+                <md-select placeholder="Cursos" ng-model="video.crsid">
+                    <md-option ng-repeat="course in courses" value="{{course.id}}">{{course.name}}</md-option>
+                </md-select> 
+          </md-input-container>         
+          <md-input-container>
+                <label>Nome</label>
+                <input md-maxlength="80" required name="name" ng-model="video.name">
+            
+                <div ng-messages="form.$error">
+                      <div ng-show="form.name.$error.required" class="md-caption">Campo Obrigatório</div>                                 
+                </div>            
+          </md-input-container> 
+          <md-input-container>
+                <label>Título</label>
+                <input md-maxlength="80" required name="title" ng-model="video.title">
+            
+                <div ng-messages="form.$error">
+                      <div ng-show="form.title.$error.required" class="md-caption">Campo Obrigatório</div>                                 
+                </div>            
+          </md-input-container> 
+          <md-input-container>
+                <label>Url Amigável</label>
+                <input md-maxlength="40" required name="friendUrl" ng-model="video.friendUrl">
+            
+                <div ng-messages="form.$error">
+                      <div ng-show="form.friendUrl.$error.required" class="md-caption">Campo Obrigatório</div>                                 
+                </div>            
+          </md-input-container>
+          <md-input-container>
+                <label>URL YouTube</label>
+                <input required name="url" ng-model="video.url">
+            
+                <div ng-messages="form.$error">
+                      <div ng-show="form.url.$error.required" class="md-caption">Campo Obrigatório</div>                                 
+                </div>            
+          </md-input-container> 
+          <md-input-container>
+                <label>Descrição</label>
+                <textarea  md-maxlength="150" cols="1" required name="description" ng-model="video.description"></textarea>
+            
+                <div ng-messages="form.$error">
+                      <div ng-show="form.description.$error.required" class="md-caption">Campo Obrigatório</div>
+                </div>            
+          </md-input-container>                
+        </form>
+     </md-content>          
+</section>

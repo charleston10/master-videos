@@ -1,0 +1,57 @@
+<md-toolbar ng-show="!showSearch" >
+  <div class="md-toolbar-tools md-whiteframe-z3" flex="100">      
+        <md-button ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Menu">
+            <ng-md-icon icon="menu" style="fill: white" size="35"></ng-md-icon>
+        </md-button>
+    
+        <h3>
+            Excript
+        </h3>
+   
+        
+        <md-button class="md-icon-button" aria-label="Inicio" ng-href="/" hide-sm aria-label="Menu">
+            <md-tooltip>
+                Inicio
+            </md-tooltip>
+            <ng-md-icon icon="home" size="35" style="fill: white" ></ng-md-icon>
+        </md-button>
+        
+        <md-button class="md-icon-button" aria-label="Canais" ng-href="/channel" hide-sm aria-label="Menu">
+            <md-tooltip>
+                Cursos
+            </md-tooltip>
+            <ng-md-icon icon="desktop_windows" size="35" style="fill: white"></ng-md-icon>            
+        </md-button>
+        
+        <md-button class="md-icon-button" aria-label="Sobre" ng-href="/about" hide-sm aria-label="Menu">
+            <md-tooltip>
+                Sobre
+            </md-tooltip>
+            <ng-md-icon icon="business" size="35" style="fill: white"></ng-md-icon>        
+        </md-button>
+         
+        <span flex></span>
+        <!--
+        <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+            <ng-md-icon icon="search" size="35" style="fill: white"></ng-md-icon>
+        </md-button>   
+        -->    
+  </div>
+</md-toolbar>        
+     <!--
+<md-toolbar ng-show="showSearch" >
+  <div class="md-toolbar-tools md-whiteframe-z3" flex="100">   
+    <md-button ng-click="showSearch = !showSearch" aria-label="Back">
+        <ng-md-icon icon="undo" size="35" style="fill: white"></ng-md-icon>
+    </md-button>    
+    <md-input-container md-theme="input" flex>        
+      <label>Pesquisar</label>
+      <input>
+    </md-input-container>
+    <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+        <ng-md-icon icon="send" size="35" style="fill: white"></ng-md-icon>   
+    </md-button> 
+  </div>  
+</md-toolbar>
+
+-->

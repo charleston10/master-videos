@@ -1,0 +1,57 @@
+<div ng-init="init()">
+    <div class="container main">
+        <div class="row-fluid" >
+            <div class="main-section span12">
+                <div class="row-fluid">
+
+                    <button class="btn btn-success" ng-click="insert()">Salvar</button>
+                    <button class="btn btn-default" ng-click="back()">Voltar</button>
+                    
+                    <hr>
+                    
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend>Parâmetro</legend>
+                      
+                        <form class="form-horizontal" id="form-video">
+                                
+                            <div class="col-xs-2">
+                                <label for="inputdefault">Tipo do Parâmetro</label>
+                                <select class="form-control" id="typeParameterSelect" ng-model="parameterType" required>
+                                    <option value="0">Selecione</option>
+                                    <option ng-repeat="typeParameter in listCategory" value="{{typeParameter.id}}">
+                                        {{typeParameter.name}}
+                                    </option>							
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="inputdefault">Nome</label>
+                                <input class="form-control" id="name" type="text" ng-model="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="inputdefault">Descrição</label>
+                                <input class="form-control" id="description" type="text" ng-model="description" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="inputdefault">Data de Inicio</label>
+                                <input class="form-control" id="startDate" type="datetime" ng-model="startDate" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="inputdefault">Data de Fim</label>
+                                <input class="form-control" id="endDate" type="datetime" ng-model="endDate">
+                            </div>
+                        
+                        </form>
+
+                    </fieldset>
+                    					
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+  <md-toolbar class="md-tall md-hue-2">
+    <span flex></span>
+    <div layout="column" class="md-toolbar-tools-bottom inset">
+      <user-avatar></user-avatar>
+      <span></span>
+       <ng-md-icon icon="view_module" size="70" style="fill: white"></ng-md-icon>
+     <span>Dashboard Excript</span>
+    </div>
+  </md-toolbar>
+  <md-list>
+    <md-subheader class="md-no-sticky">Excript</md-subheader>    
+    <md-list-item ng-click="navigateTo('/', $event)">
+      <ng-md-icon icon="home" size="20" style="fill: grey;"></ng-md-icon>
+      &nbsp<p>Ínicio</p>
+    </md-list-item>
+    <!--
+    <md-list-item ng-click="navigateTo('/', $event)">
+      <ng-md-icon icon="poll" size="20" style="fill: grey"></ng-md-icon>
+      &nbsp<p>Gráficos</p>
+    </md-list-item>
+    -->
+    <md-list-item ng-click="navigateTo('/admin/parameter', $event)">
+      <ng-md-icon icon="style" size="20" style="fill: grey"></ng-md-icon>
+      &nbsp<p>Parâmetros</p>
+    </md-list-item>
+    <md-list-item ng-click="navigateTo('/admin/image', $event)">
+      <ng-md-icon icon="photo_library" size="20" style="fill: grey"></ng-md-icon>
+      &nbsp<p>Repositório de Imagens</p>
+    </md-list-item>
+    <md-list-item ng-click="navigateTo('/admin/image/upload', $event)">
+      <ng-md-icon icon="file_upload" size="20" style="fill: grey"></ng-md-icon>
+      &nbsp<p>Upload de Imagens</p>
+    </md-list-item>
+    <md-list-item ng-click="navigateTo('/admin/course', $event)">
+      <ng-md-icon icon="desktop_windows" size="20" style="fill: grey"></ng-md-icon>
+      &nbsp<p>Cursos</p>
+    </md-list-item>
+    <md-list-item ng-click="navigateTo('/admin/video', $event)">
+      <ng-md-icon icon="video_collection" size="20" style="fill: grey"></ng-md-icon>
+      &nbsp<p>Vídeos</p>
+    </md-list-item>
+    <!--
+    <md-list-item ng-click="navigateTo('/', $event)">
+      <ng-md-icon icon="my_library_books" size="20" style="fill: grey"></ng-md-icon>
+      <p>Artigos</p>
+    </md-list-item>
+    <md-list-item ng-click="navigateTo('/', $event)">
+      <ng-md-icon icon="people" size="20" style="fill: grey"></ng-md-icon>
+      &nbsp<p>Autores</p>
+    </md-list-item>-->
+    <md-divider>  </md-divider>  
+    <md-list-item ng-click="navigateTo('/', $event)">
+      <ng-md-icon icon="settings" size="20" style="fill: grey"></ng-md-icon>
+      &nbsp<p>Configurações</p>
+    </md-list-item>  
+</md-list>

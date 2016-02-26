@@ -1,0 +1,33 @@
+ <md-content class="md-padding" ng-init="init()">     
+    <div layout="row" layout-align="center" layout-wrap layout-padding>  
+        <div  class="parent" layout="column">
+            
+            <h1 class="md-title">
+                Cursos completos gratuitos                
+            </h1>
+            
+            <p>
+                <ng-md-icon icon="desktop_windows" size="20" style="fill: grey"></ng-md-icon>
+                Escolha um curso abaixo para assistir vídeo-aulas
+            </p>
+             
+             <md-divider></md-divider> 
+            
+        </div>
+    </div>
+     
+      <div layout="row"" layout-align="center" layout-sm="column" layout-wrap>
+            <div ng-repeat="channel in listChannel | orderBy: '+name'" flex="25" flex-sm="100">
+                 <md-card>
+                <a href="channel/{{channel[0]}}">     
+                    <img ng-src="data:{{channel[8]}};base64,{{channel[7]}}" style="height: 200px" class="md-card-image">
+                </a>                      
+                <md-card-content> 
+                    <h2 class="md-title">
+                        {{ channel[1] }}
+                    </h2>                 
+                </md-card-content>
+                     
+             </md-card>              
+        </div>          
+</md-content>

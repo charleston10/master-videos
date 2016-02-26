@@ -1,0 +1,28 @@
+<div ng-init="init()">
+	<div class="container main">
+		<div class="row-fluid" >
+			<div class="main-section span12">
+				<div class="row-fluid">
+
+					<form>
+						<input type="button" value="Publicar"/>
+						<input type="button" value="Salvar como rascunho"/>
+						<input type="button" value="Pré-Visualizar"/>
+						<input type="button" value="Voltar"/>
+					</form>  
+
+					<hr>
+
+					<div>  
+						<h1>Editor</h1>
+						<div text-angular="text-angular" name="htmlPreview" ng-model="htmlPreview" ta-disabled='disabled'></div>
+					</div>
+
+					<h1>Pré-View</h1>
+
+					<div ta-bind="text" ng-model="htmlPreview"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

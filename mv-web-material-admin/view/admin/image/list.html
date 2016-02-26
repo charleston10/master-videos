@@ -1,0 +1,203 @@
+<md-content ng-init="init()" layout-padding>
+      
+       <div layout="row" layout-align="left" layout-sm="column" layout-wrap>
+                   
+            <md-select id="parameterSelect" placeholder="Pasta" ng-model="folder" ng-change="pagination.refresh()">
+                    <md-option ng-repeat="typeParameter in listFolder" value="{{typeParameter.id}}">{{typeParameter.name}}</md-option>
+            </md-select> 
+                                   
+            <md-select placeholder="Por Página" ng-model="pagination.totalPerPage" ng-change="pagination.refresh()">                
+                <md-option value="5">5</md-option>
+                <md-option value="10">10</md-option>
+                <md-option value="15">15</md-option>
+                <md-option value="20">20</md-option>
+            </md-select> 
+       </div> 
+       
+       <div layout="row" layout-align="center" layout-sm="column" layout-wrap ng-if="pagination.totalRegister == 0">
+           
+          <div class="md-whiteframe-z1">
+              Não há imagens para esta pasta
+          </div>
+            
+       </div>
+       
+       <div layout="row" layout-align="left" layout-sm="column" layout-wrap ng-if="pagination.totalRegister > 0">
+           
+           <div ng-repeat="image in listImage" flex="10" flex-sm="100" layout="row">
+                <md-card>                       
+                    <img ng-click="hide(this)" ng-src="data:image/png;base64,{{image[5]}}"  style="height: 100px; cursor: pointer" class="md-card-image">
+                </md-card>          
+            </div> 
+            
+       </div>
+       
+       <md-divider></md-divider>
+       
+        <div layout="row" layout-align="center" layout-wrap>
+            <md-button class="md-button md-raised" ng-click="pagination.first()">
+                <ng-md-icon icon="skip_previous" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+            <md-button class="md-button md-raised" ng-click="pagination.previous()">
+                <ng-md-icon icon="fast_rewind" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+            <md-button class="md-button md-raised" ng-click="pagination.next()">
+                <ng-md-icon icon="fast_forward" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+            <md-button class="md-button md-raised" ng-click="pagination.last()">
+                <ng-md-icon icon="skip_next" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+        </div>   
+     
+        <div layout="row" layout-align="left" layout-wrap>
+            <b>Página Atual:</b> {{ pagination.currentPage }}
+				&nbsp&nbsp
+			<b>T. Página:</b> {{ pagination.totalPage }}
+				&nbsp&nbsp
+			<b>T. Registro(s):</b>  {{ pagination.totalRegister }}
+        </div>           
+</md-content>
+
+<!--
+<md-content ng-init="init()">
+    
+    <md-subheader class="md-no-sticky">Repositório de Imagens</md-subheader>
+      
+       <div layout="row" layout-align="left" layout-sm="column" layout-wrap>
+                   
+            <md-select id="parameterSelect" placeholder="Pasta" ng-model="folder" ng-change="pagination.refresh()">
+                    <md-option ng-repeat="typeParameter in listFolder" value="{{typeParameter.id}}">{{typeParameter.name}}</md-option>
+            </md-select> 
+                                   
+            <md-select placeholder="Por Página" ng-model="pagination.totalPerPage" ng-change="pagination.refresh()">                
+                <md-option value="5">5</md-option>
+                <md-option value="10">10</md-option>
+                <md-option value="15">15</md-option>
+                <md-option value="20">20</md-option>
+            </md-select> 
+       </div> 
+       
+       <div layout="row" layout-align="center" layout-sm="column" layout-wrap ng-if="pagination.totalRegister==0">
+           
+          <div class="md-whiteframe-z1">
+              Não há imagens para esta pasta
+          </div>
+            
+       </div>
+       
+       <div layout="row" layout-align="left" layout-sm="column" layout-wrap ng-if="folder != 0">
+           
+           <div ng-repeat="image in listImage" flex="10" flex-sm="100" layout="row">
+                <md-card>                       
+                    <img ng-src="data:image/png;base64,{{image[5]}}" style="height: 100px" class="md-card-image">
+                </md-card>          
+            </div> 
+            
+       </div>
+       
+       <md-divider></md-divider>
+       
+        <div layout="row" layout-align="center" layout-wrap>
+            <md-button class="md-button md-raised" ng-click="pagination.first()">
+                <ng-md-icon icon="skip_previous" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+            <md-button class="md-button md-raised" ng-click="pagination.previous()">
+                <ng-md-icon icon="fast_rewind" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+            <md-button class="md-button md-raised" ng-click="pagination.next()">
+                <ng-md-icon icon="fast_forward" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+            <md-button class="md-button md-raised" ng-click="pagination.last()">
+                <ng-md-icon icon="skip_next" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+        </div>   
+     
+        <div layout="row" layout-align="left" layout-wrap>
+            <b>Página Atual:</b> {{ pagination.currentPage }}
+				&nbsp&nbsp
+			<b>T. Página:</b> {{ pagination.totalPage }}
+				&nbsp&nbsp
+			<b>T. Registro(s):</b>  {{ pagination.totalRegister }}
+        </div>           
+</md-content>
+
+
+<!--
+<div class="container main" ng-init="pagination.init()">
+    <div class="row-fluid" >
+		<h3>Central de Imagens</h3>
+        <hr>          
+            <table>
+                <tr>
+                    <td>
+                        Mostrar:
+                    </td>   
+                    <td>
+                        <select ng-model="pagination.totalPerPage">
+                            <option value="5">5</option>        
+                            <option value="10">10</option>
+                        </select>
+                    </td>  
+               
+                    <td>
+                        Pasta:
+                    </td>   
+                    <td>
+                        <select id="parameterSelect" ng-model="folder" required>
+                            <option value="0">Selecione</option>
+                            <option ng-repeat="typeParameter in listFolder" value="{{typeParameter.id}}">
+                                {{typeParameter.name}}
+                            </option>							
+                        </select>
+                    </td>  
+                                  
+                    <td colspan="2" align="right">
+                         <button ng-click="pagination.refresh()" class="btn btn-default">Atualizar</button>
+                    </td>
+                </tr>
+                
+            </table>            
+            
+            <hr>
+            
+            <div ng-if="folder == 0">
+                <div class="alert alert-block alert-info animated fadeInDown">
+                    Para listar as imagens é necessário que escolha uma pasta
+                </div>
+            </div>
+                    
+            <center ng-if="folder != 0">
+                    <img ng-repeat="image in listImage" style="width: 200px; height: 150px; padding: 2px; border: 1px solid #666;" 
+                    src="data:image/png;base64,{{image[5]}}" title="{{image[1]}}" ng-click="selectImage(this)">
+            </center>          
+                
+            <br>
+            
+            <button ng-click="pagination.first()" class="btn btn-default">Primeiro</button>     
+            <button ng-click="pagination.previous()" class="btn btn-default">Anterior</button>
+            <button ng-click="pagination.next()" class="btn btn-default">Próximo</button>
+            <button ng-click="pagination.last()" class="btn btn-default">Último</button> 
+            
+            <br><br>
+            
+            <span>
+                <b>Página Atual:</b> {{ pagination.currentPage }}
+            </span> <br>
+            <span>
+                <b>T. Página:</b> {{ pagination.totalPage }}
+            </span> <br>
+            <span>
+                <b>T. Registros:</b> {{ pagination.totalRegister }}
+            </span><br>		
+            <span>
+                <b>T. por Página:</b> {{ pagination.totalPerPage }}
+            </span><br>	
+            <span>
+                <b>Registro: </b> {{ pagination.dataInit }} <b> - </b> {{ pagination.dataEnd }}
+            </span>
+            <br>
+            <br>
+    </div>
+</div>
+
+-->

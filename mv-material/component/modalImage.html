@@ -1,0 +1,63 @@
+<script type="text/ng-template" id="imageModal">
+	<div class="modal-body" ng-init="init()"> 
+		   <table>
+		        <tr>
+		            <td>
+		                Mostrar:
+		            </td>   
+		            <td>
+		                <select ng-model="pagination.totalPerPage">
+		                    <option value="5">5</option>        
+		                    <option value="10">10</option>
+							<option value="15">15</option>
+		                </select>
+		            </td>
+		            </tr>  
+		            <tr>
+		            <td>
+		                Pasta:
+		            </td>   
+		            <td>
+		                <select id="parameterSelect" ng-model="folder" ng-required="true" ng-change="pagination.refresh()">
+		                    <option value="0">Selecione</option>
+		                    <option ng-repeat="typeParameter in listFolder" value="{{typeParameter.id}}">
+		                        {{typeParameter.name}}
+		                    </option>							
+		                </select>
+		            </td> 
+		        </tr>
+		    </table>            
+		    
+		    <hr>
+			
+			<div ng-if="pagination.totalRegister == 0 || folder==0">
+		        <div class="alert alert-block alert-danger animated fadeInDown">
+		            Não há imagens para esta pasta
+		        </div>
+		    </div>
+		            
+		    <center ng-if="!(pagination.totalRegister == 0 || folder==0)">
+		            <img ng-repeat="image in listImage" style="width: 100px; height: 50px; padding: 2px; border: 1px solid #666;" 
+		            src="data:image/png;base64,{{image[5]}}" title="{{image[1]}}" ng-click="selected.item = image">		        
+		    <br><br>
+		
+			    <button ng-click="pagination.first()" class="btn btn-default">|<</button>     
+			    <button ng-click="pagination.previous()" class="btn btn-default"><<</button>
+			    <button ng-click="pagination.next()" class="btn btn-default">>></button>
+			    <button ng-click="pagination.last()" class="btn btn-default">>|</button>
+			</center> 		    
+		</div>
+		<div class="modal-footer">
+			<div align="left">
+				<b>Página Atual:</b> {{ pagination.currentPage }}
+				&nbsp&nbsp
+				<b>T. Página:</b> {{ pagination.totalPage }}
+				&nbsp&nbsp
+				<b>T. Registro(s):</b>  {{ pagination.totalRegister }}
+			</div>
+
+		    <button class="btn btn-primary" ng-click="ok()">OK</button>
+		    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+		</div>
+	</div>
+</script>

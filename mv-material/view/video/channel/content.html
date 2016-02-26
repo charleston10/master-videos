@@ -1,0 +1,102 @@
+<div ng-init="init()">
+  <md-content class="md-padding">
+    
+        <span class="md-title" style="color: grey;">{{contentChannel.name}}</span>
+        <br>
+        <p style="color: grey;">
+            {{contentChannel.description}}        
+        </p>    
+            
+        <br><br>
+    
+        <md-tabs md-dynamic-height md-border-bottom>
+          
+          <md-tab label="Índice">
+            <md-content>
+             
+              <md-list>
+                  <md-list-item class="md-3-line" ng-repeat="video in contentChannel.listVideo">
+                      
+                      <ng-md-icon icon="school" size="20" style="fill: grey"></ng-md-icon>
+                      
+                      <div class="md-list-item-text">                 
+                          <p>{{ video[1] }}</p>
+                          <p>{{ video[2] }}</p>
+                      </div>
+                      
+                      <md-button ng-href="channel/{{ video[7] }}/video/{{ video[0] }}">
+                          <ng-md-icon icon="video_collection" size="20"" style="fill: grey"></ng-md-icon>
+                          Assistir
+                      </md-button>          
+                      
+                      <md-divider></md-divider>
+                                  
+                  </md-list-item>
+                 
+              </md-list>
+            
+            </md-content>
+          </md-tab>
+          
+          <md-tab label="Vídeos">
+            <md-content class="md-padding">    
+                         
+                <div layout="row"" layout-align="center" layout-sm="column" ng-show="showContentVideo" layout-wrap>  
+                              
+                    <div ng-repeat="video in contentChannel.listVideo | orderBy: '+name'" flex="25" flex-sm="100">
+                         <md-card>
+                            <a ng-href="channel/{{ video[7] }}/video/{{ video[0] }}">     
+                                <img ng-src="data:{{video[12]}};base64,{{video[11]}}" style="height: 200px" class="md-card-image">
+                            </a>                      
+                            <md-card-content> 
+                                <h2 class="md-title">
+                                    {{ video[2] }}
+                                </h2>                 
+                            </md-card-content>                             
+                         </md-card>              
+                    </div>
+                </div>
+                
+             </md-content>
+          </md-tab>
+          
+        </md-tabs>
+  </md-content>
+</div> 
+ <!--
+ <md-content class="md-padding" ng-init="init()">     
+    <div layout="row" layout-align="center" layout-wrap layout-padding>  
+        <div  class="parent" layout="column">
+            
+            <md-button ng-href="/channel">
+                <ng-md-icon icon="undo" size="20"></ng-md-icon>
+                  Voltar à lista de canais
+            </md-button>
+            
+             <h3 class="md-title">{{ contentChannel.name }}</h3>
+             
+             <md-divider></md-divider>             
+             
+              <md-whiteframe class="md-whiteframe-z2" layout layout-align="center center"  ng-if="!showContentVideo">
+                    <span>Desculpe. Não há vídeos para este canal</span>                    
+              </md-whiteframe>
+        </div>
+    </div>           
+    <div layout="row"" layout-align="center" layout-sm="column" ng-show="showContentVideo" layout-wrap>  
+                  
+        <div ng-repeat="video in contentChannel.listVideo | orderBy: '+name'" flex="25" flex-sm="100">
+             <md-card>
+                <a href="channel/{{ video.channelId }}/video/{{ video.id }}">     
+                    <img ng-src="data:{{video.image.mimetype}};base64,{{video.image.base64}}" style="height: 200px" class="md-card-image">
+                </a>                      
+                <md-card-content> 
+                    <h2 class="md-title">
+                        {{ video.name }}
+                    </h2>                 
+                </md-card-content>                             
+             </md-card>              
+        </div>
+    </div>
+ </md-content>  
+ 
+ -->

@@ -1,0 +1,14 @@
+{
+	"channel" : {
+				"title" : "teste",
+				"description" : "essa é uma descrição de teste"
+			   },
+	"content" : [
+					{
+						"id"   : "2",
+						"name" : "Phyton",
+						"img"  : "assets/img/img-site/java.jpg",
+						"date" : "2015-03-01"
+					}
+				]
+}

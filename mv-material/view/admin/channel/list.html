@@ -1,0 +1,43 @@
+<div ng-init="list()">
+    <div class="container main">
+        <div class="row-fluid" >
+            <div class="main-section span12">
+                <div class="row-fluid">
+
+                    <fieldset>
+                        <legend>Registrar Canal</legend>
+
+                        <button class="btn btn-success" ng-click="add()">Adicionar</button>
+
+                        <hr>
+
+                        <table class="table table-striped">
+                            <thead>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Inicio</th>
+                            <th>Fim</th>                            
+                            <th>Desativado</th>
+                            <th>Ação</th>
+                            </thead>
+                            <tr ng-repeat="channel in listChannel| orderBy: '-id'">
+                                <td>{{ channel.id }}</td>
+                                <td>{{ channel.name }}</td>
+                                <td>{{ channel.description }}</td>
+                                <td>{{ channel.startDate | date:'yyyy-MM-dd HH:mm' }}</td>
+                                <td>{{ channel.endDate | date:'yyyy-MM-dd HH:mm'}}</td>                               
+                                <td>{{ (channel.disable) ? 'Sim' : 'Não' }}</td>								
+                                							
+                                <td>
+                                    <button class="btn btn-danger" ng-click="delete(channel.id)">Deletar</button>
+                                </td>
+                            </tr>
+                        </table>						
+                    </fieldset>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

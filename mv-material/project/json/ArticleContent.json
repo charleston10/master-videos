@@ -1,0 +1,18 @@
+{
+	"article" : {
+					"title"         : "Como Aprender C++",
+					"subtitle"		: "De modo prático",
+					"description"	: "Faaaaaaaaallllllllllaaaaaaaaaaa galeeera!!",
+					"version"		: "1.1",
+					"revision"		: "",
+					"img" 			: "assets/img/img-site/c.jpg",
+					"date" 			: "2015-03-01",
+					"src"			: "content/article/article-1.html"
+				},
+	"author" : {
+					"name"			 : "A. Charleston",
+					"totalArticle"  : "143",
+					"totalVideo" 	 : "10",
+					"classification" : "Mestre guru"
+			   }
+}

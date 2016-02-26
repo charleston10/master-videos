@@ -1,0 +1,46 @@
+<div ng-init="list()">
+    <div class="container main">
+        <div class="row-fluid" >
+            <div class="main-section span12">
+                <div class="row-fluid">
+
+                    <fieldset>
+                        <legend>Registrar Vídeos</legend>
+
+                        <button class="btn btn-success" ng-click="add()">Adicionar</button>
+
+                        <hr>
+
+                        <table class="table table-striped">
+                            <thead>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Título</th>
+                            <th>Url</th>
+                            <th>Desativado</th>
+                            <th>Canal</th>
+                            <th>Ação</th>
+                            </thead>
+                            <tr ng-repeat="video in listVideo| orderBy: '-id'">
+                                <td>{{ video[0] }}</td>
+                                <td>{{ video[1] }}</td>
+                                <td>{{ video[2] }}</td>
+                                <td>
+                                    <a href="{{ video.url}}" target="_blank">
+                                        {{ video[5] }}
+                                    </a>									
+                                </td>
+                                <td>{{ (video[6] ) ? 'Sim' : 'Não'}}</td>								
+                                <td>{{ video[11] }}</td>								
+                                <td>
+                                    <button class="btn btn-danger" ng-click="delete(video.id)">Deletar</button>
+                                </td>
+                            </tr>
+                        </table>						
+                    </fieldset>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

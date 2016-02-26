@@ -1,0 +1,18 @@
+<section ng-show="showRecommended">
+    <div id="info-unit"> 
+        <div class="alert alert-block alert-info animated fadeInDown">
+            <button type="button" class="close" data-dismiss="alert" ng-click="closeRecommended()">×</button>
+            <h4 class="alert-heading">Canais Recomendados</h4>
+            <br>
+            <div class="row-fluid" id="oportunidadeslistings">
+                <ul class="thumbnails" ng-repeat="channel in listChannelRecommended | orderBy: '+name'">
+                    <li class="span3">
+                        <a href="#/channel/{{ channel.name | lowercase }}" class="thumbnail"  style="height: 100%">
+                            <img src="{{ channel.img }}" class="img-rounded">
+                        </a>
+                    </li>                     
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

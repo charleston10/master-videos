@@ -1,0 +1,73 @@
+
+<md-dialog flex="50">
+
+    <md-dialog-content ng-init="init()">
+        
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+              <h2>Repositório de Imagens</h2>
+              <span flex></span>
+              <md-button class="md-icon-button" ng-click="cancel()">
+                <ng-md-icon icon="close" size="20" style="fill: white;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+              </md-button>
+            </div>
+        </md-toolbar>
+      
+       <div layout="row" layout-align="left" layout-sm="column" layout-wrap>
+                   
+            <md-select id="parameterSelect" placeholder="Pasta" ng-model="folder" ng-change="pagination.refresh()">
+                    <md-option ng-repeat="typeParameter in listFolder" value="{{typeParameter.id}}">{{typeParameter.name}}</md-option>
+            </md-select> 
+                                   
+            <md-select placeholder="Por Página" ng-model="pagination.totalPerPage" ng-change="pagination.refresh()">                
+                <md-option value="5">5</md-option>
+                <md-option value="10">10</md-option>
+                <md-option value="15">15</md-option>
+                <md-option value="20">20</md-option>
+            </md-select> 
+       </div> 
+       
+       <div layout="row" layout-align="center" layout-sm="column" layout-wrap ng-if="pagination.totalRegister == 0">
+           
+          <div class="md-whiteframe-z1">
+              Não há imagens para esta pasta
+          </div>
+            
+       </div>
+       
+       <div layout="row" layout-align="left" layout-sm="column" layout-wrap ng-if="pagination.totalRegister > 0">
+           
+           <div ng-repeat="image in listImage" flex="20" flex-sm="100" layout="row">
+                <md-card>                       
+                    <img ng-click="hide(this)" ng-src="data:{{image.mimetype}};base64,{{image.base64}}"  style="height: 100px; cursor: pointer" class="md-card-image">
+                </md-card>          
+            </div> 
+            
+       </div>
+       
+       <md-divider></md-divider>
+       
+        <div layout="row" layout-align="center" layout-wrap>
+            <md-button class="md-button md-raised" ng-click="pagination.first()">
+                <ng-md-icon icon="skip_previous" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+            <md-button class="md-button md-raised" ng-click="pagination.previous()">
+                <ng-md-icon icon="fast_rewind" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+            <md-button class="md-button md-raised" ng-click="pagination.next()">
+                <ng-md-icon icon="fast_forward" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+            <md-button class="md-button md-raised" ng-click="pagination.last()">
+                <ng-md-icon icon="skip_next" size="20" style="fill: grey;position: absolute;top: 16%;left: 38%;"></ng-md-icon>
+            </md-button>
+        </div>   
+     
+        <div layout="row" layout-align="left" layout-wrap>
+            <b>Página Atual:</b> {{ pagination.currentPage }}
+				&nbsp&nbsp
+			<b>T. Página:</b> {{ pagination.totalPage }}
+				&nbsp&nbsp
+			<b>T. Registro(s):</b>  {{ pagination.totalRegister }}
+        </div>           
+</md-dialog-content>
+</md-dialog>

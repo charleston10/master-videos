@@ -1,0 +1,36 @@
+<div class="container main">
+    <div class="row-fluid" >
+        <div class="main-section span10">
+            <div class="row-fluid">
+                <header class="page-header">
+                    <div class="row-fluid">
+                        <div class="span9">
+                            <h1>{{ contentArticle.title }}<small> {{ contentArticle.subtitle }}</small></h1>
+                            <p>
+                                {{ contentArticle.description }}
+                                <br>
+                                <code>Versão {{ contentArticle.version }}</code> 
+                                <span><i>{{ contentArticle.revision }}</i></span>
+                                <span><i>Postado em: {{ contentArticle.date | date: 'dd/MM/yyyy' }}</i></span>
+                            </p>
+                        </div>
+                        <div class="span2 pull-right">
+                            <img src="{{ contentArticle.img }}">
+                        </div>
+                    </div>
+                </header>
+                <article>
+                    <ng-include src="contentArticle.src"></ng-include>
+                </article>
+
+            </div>
+            <div class="row-fluid">
+                <ng-include src="'view/common/pagination.html'"></ng-include>
+            </div>
+            <div class="row-fluid">
+                <!--<div ng-include="'view/article/comment.html'"></div>-->
+            </div>
+        </div>
+        <ng-include src="'view/article/author.html'"></ng-include>
+    </div>
+</div>
